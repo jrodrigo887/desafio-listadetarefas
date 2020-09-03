@@ -47,6 +47,7 @@ public class ItemService {
 
   return itemRepository.findById(itemId).map(itm -> {
    itm.setTitulo(item.getTitulo());
+   itm.setConcluido(item.isConcluido());
    return itemRepository.save(itm);
   }).orElseThrow(() -> new RecursoNotFound("Tarefa Id " + tarefaId + " Não Encontrado!"));
  }
